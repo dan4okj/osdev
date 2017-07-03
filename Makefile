@@ -4,7 +4,7 @@ CPARAMS = -m32 -nostdlib -fno-builtin -fno-exceptions -fno-leading-underscore
 AS = as
 ASPARAMS = --32
 
-OBJ = loader.o kernel.o
+OBJ = loader.o gdt.o kernel.o
 LDPARAMS = -m elf_i386
 
 
