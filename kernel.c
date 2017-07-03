@@ -5,7 +5,7 @@
  */
 
 #include "lib/basic_types.h"
-
+#include "lib/gdt.h"
 
 
 // Start address of video memory in RAM
@@ -22,7 +22,10 @@ void printf(char* str) {
 }
 
 void kernel_main(void* multiboot_struct, uint32_t magic_num) {
-	printf("Hello, my awesome operating system!!");
+	load_gdt();
+	printf("Hello, my awesome operating system!! GDT Table is loaded");
+
 
 	while(1);
 }
+
