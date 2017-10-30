@@ -4,7 +4,8 @@
 #include "basic_types.h"
 
 
-struct SEGMENT_DESCRIPTOR {
+struct SEGMENT_DESCRIPTOR
+{
 	uint16_t limit_lo;
 	uint16_t base_lo;
 
@@ -15,7 +16,8 @@ struct SEGMENT_DESCRIPTOR {
 } __attribute__((packed));
 
 
-struct GDT_PTR { 
+struct GDT_PTR 
+{ 
     uint8_t limit; 
     uint32_t base; 
 } __attribute__((packed)); 
@@ -29,10 +31,10 @@ void gdt_set_gate(
 	uint32_t base,
 	uint32_t limit,
 	uint8_t access,
-	uint8_t gran);
+	uint8_t gran
+);
 
 
 void load_gdt();
-
 
 #endif
