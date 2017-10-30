@@ -4,7 +4,7 @@ CPARAMS = -m32 -nostdlib -fno-builtin -fno-exceptions -fno-leading-underscore
 AS = as
 ASPARAMS = --32
 
-OBJ = loader.o gdt.o kernel.o
+OBJ = loader.o gdt.o video_mem.o kernel.o
 LDPARAMS = -m elf_i386
 
 
@@ -29,13 +29,15 @@ kernel.iso: kernel.bin
 	echo '	multiboot /boot/kernel.bin' >> iso/boot/grub/grub.cfg
 	echo '	boot' >> iso/boot/grub/grub.cfg
 	echo '}' >> iso/boot/grub/grub.cfg
-	grub2-mkrescue --output=$@ iso
+	grub-mkrescue --output=$@ iso
 	rm -rf iso
 
 run: kernel.iso
 	(killall VirtualBox & sleep 1) || true
-	VirtualBox --startvm "MyOs" &
+	VirtualBox --startvm "Osdev" &
 
 install: kernel.bin
 	sudo cp $< /boot/kernel.bin
 
+clean:
+	rm -f $(OBJ) kernel.bin kernel.iso
