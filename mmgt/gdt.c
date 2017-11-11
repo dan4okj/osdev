@@ -3,7 +3,7 @@
  *
  */
 
-#include "lib/gdt.h"
+#include "gdt.h"
 
 
 struct SEGMENT_DESCRIPTOR gdt[3];

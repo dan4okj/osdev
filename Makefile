@@ -1,10 +1,14 @@
 CC = gcc
-CPARAMS = -m32 -nostdlib -fno-builtin -fno-exceptions -fno-leading-underscore
+CPARAMS = -m32 -I include -nostdlib -fno-builtin -fno-exceptions -fno-leading-underscore
 
 AS = as
 ASPARAMS = --32
 
-OBJ = loader.o gdt.o video_mem.o kernel.o
+OBJ = loader.o  \
+	  mmgt/gdt.o \
+	  io/video_mem.o \
+	  kernel.o
+
 LDPARAMS = -m elf_i386
 
 

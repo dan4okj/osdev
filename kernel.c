@@ -3,9 +3,9 @@
  *
  */
 
-#include "lib/basic_types.h"
-#include "lib/video_mem.h"
-#include "lib/gdt.h"
+#include "basic_types.h"
+#include "video_mem.h"
+#include "gdt.h"
 
 
 void kernel_main(void* multiboot_struct, uint32_t magic_num)
