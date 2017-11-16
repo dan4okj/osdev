@@ -1,5 +1,5 @@
-#include "lib/basic_types.h"
-#include "lib/video_mem.h"
+#include "basic_types.h"
+#include "video_mem.h"
 
 
 // Characters in video memory
